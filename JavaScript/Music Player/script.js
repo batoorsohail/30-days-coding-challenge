@@ -166,6 +166,8 @@ pauseButton.addEventListener("click",  pauseSong);
 
 nextButton.addEventListener("click", playNextSong);
 
+previousButton.addEventListener("click", playPreviousSong);
+
 userData?.songs.sort((a,b) => {
   if (a.title < b.title) {
     return -1;
