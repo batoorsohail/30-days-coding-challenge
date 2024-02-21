@@ -8,7 +8,28 @@ const AddPostForm = () => {
   const onContentChanged = e => setContent(e.target.value);
 
   return (
-    <div>AddPostForm</div>
+    <section>
+      <h2>Add a new post</h2>
+      <form>
+        <label htmlFor="postTitle">Post Title:</label>
+        <input 
+          type="text"
+          id="postTitle"
+          name="postTitle"
+          value={title}
+          onChange={onTitleChanged}
+        />
+        <label htmlFor="postContent">Content:</label>
+        <input 
+          type="text"
+          id="postContent"
+          name="postContent"
+          value={content}
+          onChange={onContentChanged}
+        />
+        <button type="button">Save Post</button>
+      </form>
+    </section>
   )
 }
 
