@@ -28,9 +28,9 @@ const AddPostForm = () => {
 
   return (
     <section>
-      <h2>Add a new post</h2>
-      <form>
-        <label htmlFor="postTitle">Post Title:</label>
+      <h2 className="text-5xl text-white font-bold">Add a new post</h2>
+      <form className="flex flex-col">
+        <label htmlFor="postTitle" className="text-lg text-white">Post Title:</label>
         <input 
           type="text"
           id="postTitle"
@@ -38,7 +38,7 @@ const AddPostForm = () => {
           value={title}
           onChange={onTitleChanged}
         />
-        <label htmlFor="postContent">Content:</label>
+        <label htmlFor="postContent" className="text-lg text-white">Content:</label>
         <input 
           type="text"
           id="postContent"
@@ -49,6 +49,7 @@ const AddPostForm = () => {
         <button 
           type="button"
           onClick={onSavePostClicked}
+          className="border border-black text-lg text-black bg-white mt-2"
         >Save Post</button>
       </form>
     </section>

@@ -12,7 +12,7 @@ const PostsList = () => {
   ))
 
   return (
-    <section className="flex flex-col items-center justify-center gap-5 h-screen bg-slate-800">
+    <section className="flex flex-col gap-5">
       <h2 className="text-5xl text-white font-bold">Posts</h2>
       {renderedPosts}
     </section>

@@ -3,10 +3,10 @@ import AddPostForm from "./features/posts/AddPostForm"
 
 function App() {
   return (
-    <>
-     <PostsList />
-     <AddPostForm />
-    </>
+    <section className="flex flex-col items-center justify-center gap-5 h-screen bg-[#373737]">
+      <AddPostForm />
+      <PostsList />
+    </section>
   )
 }
 
