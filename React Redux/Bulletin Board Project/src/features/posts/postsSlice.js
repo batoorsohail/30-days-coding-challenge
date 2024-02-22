@@ -7,7 +7,7 @@ const initialState = [
     title: "Whatever",
     content: "Whatever you wanna write...",
     date: sub(new Date(), {minutes: 10}).toISOString(),
-    reaction: {
+    reactions: {
       thumbsUp: 0,
       wow: 0,
       heart: 0,
@@ -21,7 +21,7 @@ const initialState = [
     content: "We are going to learn RTK...",
     date: sub(new Date(),
     {minutes: 5}).toISOString(),
-    reaction: {
+    reactions: {
       thumbsUp: 0,
       wow: 0,
       heart: 0,
@@ -47,7 +47,7 @@ const postsSlice = createSlice({
             content,
             date: new Date().toISOString(),
             userId,
-            reaction: {
+            reactions: {
               thumbsUp: 0,
               wow: 0,
               heart: 0,
