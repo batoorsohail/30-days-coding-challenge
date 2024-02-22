@@ -6,7 +6,9 @@ import TimeAgo from "./TimeAgo"
 const PostsList = () => {
   const posts = useSelector(selectAllPosts)
 
-  const renderedPosts = posts.map(post => (
+  const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a.date));
+
+  const renderedPosts = orderedPosts.map(post => (
     <article key={post.id} className="border border-white rounded-lg py-5 px-8">
       <h3 className="text-2xl text-white font-bold font-serif">{post.title}</h3>
       <p className="text-lg text-white">{post.content.substring(0, 100)}</p>
