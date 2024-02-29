@@ -6,10 +6,10 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { selectAllUsers } from "../users/usersSlice";
 
 const EditPostForm = () => {
-  const { id } = useParams();
+  const { postId } = useParams();
   const navigate = useNavigate();
 
-  const post = useSelector((state) => selectPostById(state, Number(post.id)));
+  const post = useSelector((state) => selectPostById(state, Number(postId)));
   const users = useSelector(selectAllUsers);
 
   const [title, setTitle] = useState(post?.title);
@@ -27,7 +27,7 @@ const EditPostForm = () => {
     )
   };
 
-  const onTitleChanged = setTitle(e.target.value);
+  const onTitleChanged =  e => setTitle(e.target.value);
   const onContentChanged = e => setContent(e.target.value);
   const onAuthorChanged = e => setUserId(Number(e.target.value));
 
@@ -89,12 +89,12 @@ const EditPostForm = () => {
           >
             Save Post
           </button>
-          <button className="deleteButton"
+          {/* <button className="deleteButton"
             type="button"
             onClick={onDeletePostClicked}
           >
             Delete Post
-          </button>
+          </button> */}
         </form>
   </section>
   )
