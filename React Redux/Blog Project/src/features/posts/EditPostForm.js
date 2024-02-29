@@ -105,12 +105,12 @@ const EditPostForm = () => {
           >
             Save Post
           </button>
-          {/* <button className="deleteButton"
+          <button className="deleteButton"
             type="button"
             onClick={onDeletePostClicked}
           >
             Delete Post
-          </button> */}
+          </button>
         </form>
   </section>
   )
