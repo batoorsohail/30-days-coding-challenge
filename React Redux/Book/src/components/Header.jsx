@@ -2,15 +2,15 @@ import { Link } from "react-router-dom"
 
 const Header = () => {
   return (
-    <header>
-      <h1>Book Store</h1>
+    <header className="bg-black flex items-center justify-between py-2 px-20">
+      <h1 className="text-white text-3xl">Book Store</h1>
       <nav>
-        <ul>
+        <ul className="flex items-center gap-10">
           <li>
-            <Link to="/">Books</Link>
+            <Link to="/" className="text-white">Books</Link>
           </li>
           <li>
-            <Link to="/categories">Categories</Link>
+            <Link to="/categories" className="text-white">Categories</Link>
           </li>
         </ul>
       </nav>
