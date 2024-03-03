@@ -1,5 +1,9 @@
+import Book from "../components/Book";
+
 const HomePage = () => (
-  <div>HomePage</div>
+  <section className="bg-slate-900 h-screen">
+    <Book />
+  </section>
 );
 
 export default HomePage;
