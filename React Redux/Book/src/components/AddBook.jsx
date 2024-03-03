@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux"
 import { useState } from "react";
 import { addBook } from "../redux/books/booksSlice";
+import { nanoid } from "nanoid";
 
 const AddBook = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const AddBook = () => {
 
   const onAddBookClick = () => {
     const newBook = {
+      item_id: nanoid(),
       title: bookName,
       author: authorName
     }
