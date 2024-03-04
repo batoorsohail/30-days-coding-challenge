@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 const Header = () => (
-  <header className="bg-black flex items-center justify-between py-2 px-20">
+  <header className="bg-black flex items-center justify-between h-[10vh] py-2 px-20">
     <h1 className="text-white text-3xl">Book Store</h1>
     <nav>
       <ul className="flex items-center gap-10">

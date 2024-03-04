@@ -32,8 +32,8 @@ const AddBook = () => {
   };
 
   return (
-    <section>
-      <form onSubmit={onSubmitAddBook} className="flex justify-center gap-10 mt-20">
+    <section className="pt-20 pb-20">
+      <form onSubmit={onSubmitAddBook} className="flex justify-center gap-10">
         <input type="text" placeholder="Book Name" value={bookName} onChange={onBookChanged} className="px-[6px] py-[4px]" required />
         <input type="text" placeholder="Author name" value={authorName} onChange={onAuthorChanged} className="px-[6px] py-[4px]" required />
         <select name="category" value={bookCategory} onChange={onCategoryChanged}>

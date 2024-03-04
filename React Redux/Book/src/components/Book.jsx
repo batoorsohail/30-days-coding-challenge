@@ -11,7 +11,7 @@ const Book = () => {
   };
 
   return (
-    <section className="flex justify-center flex-wrap gap-40 pt-20">
+    <section className="flex justify-center flex-wrap gap-20 pt-20">
       {books.map((book) => (
         <div className="flex flex-col bg-white py-5 px-10 rounded-md gap-5 w-1/5" key={book.item_id}>
           <p className="text-2xl font-bold">{book.title}</p>
