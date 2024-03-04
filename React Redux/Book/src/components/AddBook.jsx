@@ -12,7 +12,7 @@ const AddBook = () => {
 
   const onBookChanged = (e) => (setBookName(e.target.value));
   const onAuthorChanged = (e) => (setAuthorName(e.target.value));
-  const onCategoryChanged = (e) => (setBookCategory(e.target.value))
+  const onCategoryChanged = (e) => (setBookCategory(e.target.value));
 
   const onSubmitAddBook = (e) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ const AddBook = () => {
       item_id: nanoid(),
       title: bookName,
       author: authorName,
-      category: bookCategory || 'Fiction'
+      category: bookCategory || 'Fiction',
     };
 
     dispatch(addBook(newBook));
