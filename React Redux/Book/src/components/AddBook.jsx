@@ -21,14 +21,14 @@ const AddBook = () => {
       item_id: nanoid(),
       title: bookName,
       author: authorName,
-      category: bookCategory
+      category: bookCategory || 'Fiction'
     };
 
     dispatch(addBook(newBook));
 
     setBookName('');
     setAuthorName('');
-    setBookCategory('');
+    setBookCategory('Fiction');
   };
 
   return (
@@ -36,7 +36,7 @@ const AddBook = () => {
       <form onSubmit={onSubmitAddBook} className="flex justify-center gap-10 mt-20">
         <input type="text" placeholder="Book Name" value={bookName} onChange={onBookChanged} className="px-[6px] py-[4px]" required />
         <input type="text" placeholder="Author name" value={authorName} onChange={onAuthorChanged} className="px-[6px] py-[4px]" required />
-        <select name="category" onChange={onCategoryChanged}>
+        <select name="category" value={bookCategory} onChange={onCategoryChanged}>
           <option value="Fiction">Fiction</option>
           <option value="Comedy">Comedy</option>
           <option value="Nonfiction">Nonfiction</option>
