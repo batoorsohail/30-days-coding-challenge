@@ -8,7 +8,7 @@ const Book = () => {
 
   const onDeleteBook = (book) => {
     dispatch(removeBook(book.item_id));
-  }
+  };
 
   return (
     <section className="flex justify-center flex-wrap gap-40 pt-20">
