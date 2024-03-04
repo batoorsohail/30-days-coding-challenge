@@ -25,7 +25,7 @@ const AddBook = () => {
     };
 
     dispatch(addBook(newBook));
-    
+
     setBookName('');
     setAuthorName('');
     setBookCategory('');
@@ -34,8 +34,8 @@ const AddBook = () => {
   return (
     <section>
       <form onSubmit={onSubmitAddBook} className="flex justify-center gap-10 mt-20">
-        <input type="text" placeholder="Book Name" onChange={onBookChanged} className="px-[6px] py-[4px]" required />
-        <input type="text" placeholder="Author name" onChange={onAuthorChanged} className="px-[6px] py-[4px]" required />
+        <input type="text" placeholder="Book Name" value={bookName} onChange={onBookChanged} className="px-[6px] py-[4px]" required />
+        <input type="text" placeholder="Author name" value={authorName} onChange={onAuthorChanged} className="px-[6px] py-[4px]" required />
         <select name="category" onChange={onCategoryChanged}>
           <option value="Fiction">Fiction</option>
           <option value="Comedy">Comedy</option>
