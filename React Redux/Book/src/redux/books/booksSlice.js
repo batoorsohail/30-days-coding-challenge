@@ -2,26 +2,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  booksData: [
-    {
-      item_id: 'item1',
-      title: 'The Great Gatsby',
-      author: 'John Smith',
-      category: 'Fiction',
-    },
-    {
-      item_id: 'item2',
-      title: 'Anna Karenina',
-      author: 'Leo Tolstoy',
-      category: 'Fiction',
-    },
-    {
-      item_id: 'item3',
-      title: 'The Selfish Gene',
-      author: 'Richard Dawkins',
-      category: 'Nonfiction',
-    },
-  ],
+  booksData: [],
+  status: "idle",
+  error: null
 };
 
 const BOOKS_URL = "https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/oiExl0Oo4RSaCgGm5QD0"
@@ -45,6 +28,22 @@ const booksSlice = createSlice({
       state.booksData = state.booksData.filter((book) => book.item_id !== deleteBookId);
     },
   },
+  extraReducers(builder) {
+    builder
+      .addCase(fetchBooks.pending, (state, action) => {
+        state.status = "loading";
+      })
+      .addCase(fetchBooks.fulfilled, (state, action) => {
+        state.status = "succeed";
+        const loadedBooks = action.payload;
+        state.booksData = state.booksData.concat(loadedBooks);
+        console.log(state.booksData);
+      })
+      .addCase(fetchBooks.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+  }
 });
 
 export const { addBook, removeBook } = booksSlice.actions;
