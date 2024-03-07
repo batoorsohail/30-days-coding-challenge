@@ -7,12 +7,12 @@ const initialState = {
   error: null
 };
 
-const BOOKS_URL = "https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/oiExl0Oo4RSaCgGm5QD0"
+const BOOKS_URL = "https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/neTvlShlUagV28v2Fadm"
 
 export const fetchBooks = createAsyncThunk("books/fetchBooks", async() => {
   const response = await axios.get(`${BOOKS_URL}/books`)
-  console.log(response.data);
-})
+  return response.data;
+});
 
 const booksSlice = createSlice({
   name: 'books',
@@ -36,8 +36,13 @@ const booksSlice = createSlice({
       .addCase(fetchBooks.fulfilled, (state, action) => {
         state.status = "succeed";
         const loadedBooks = action.payload;
-        state.booksData = state.booksData.concat(loadedBooks);
-        console.log(state.booksData);
+
+        // eslint-disable-next-line no-restricted-syntax, guard-for-in
+        for (const id in loadedBooks) {
+          const bookObj = loadedBooks[id][0];
+          bookObj.item_id = id;
+          state.booksData.push(bookObj);
+        }
       })
       .addCase(fetchBooks.rejected, (state, action) => {
         state.status = "failed";
@@ -45,6 +50,8 @@ const booksSlice = createSlice({
       })
   }
 });
+
+export const selectAllBooks = (state => state.books.booksData);
 
 export const { addBook, removeBook } = booksSlice.actions;
 export default booksSlice.reducer;
