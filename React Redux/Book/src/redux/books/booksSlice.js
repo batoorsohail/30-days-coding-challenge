@@ -17,7 +17,7 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
 export const addNewBook = createAsyncThunk('books/addNewBook', async (booksData) => {
   const response = await axios.post(`${BOOKS_URL}/books`, booksData);
   return response.data;
-})
+});
 
 const booksSlice = createSlice({
   name: 'books',
@@ -46,9 +46,9 @@ const booksSlice = createSlice({
         for (const id in loadedBooks) {
           const bookObj = loadedBooks[id][0];
           bookObj.item_id = id;
-              // Check if the book with the same item_id already exists in booksData
-          const existingBookIndex = state.booksData.findIndex(book => book.item_id === id);
-            
+          // Check if the book with the same item_id already exists in booksData
+          const existingBookIndex = state.booksData.findIndex((book) => book.item_id === id);
+
           if (existingBookIndex === -1) {
             state.booksData.push(bookObj);
           } else {
@@ -68,7 +68,7 @@ const booksSlice = createSlice({
         state.status = 'succeed';
       }).addCase(addNewBook.rejected, (state) => {
         state.status = 'failed';
-      })
+      });
   },
 });
 

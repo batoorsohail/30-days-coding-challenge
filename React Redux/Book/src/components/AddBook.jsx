@@ -25,7 +25,7 @@ const AddBook = () => {
     };
 
     dispatch(addBook(newBook));
-    dispatch(addNewBook(newBook))
+    dispatch(addNewBook(newBook));
 
     setBookName('');
     setAuthorName('');
