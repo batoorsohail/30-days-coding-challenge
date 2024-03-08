@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import { addBook } from '../redux/books/booksSlice';
+import { addBook, addNewBook } from '../redux/books/booksSlice';
 
 const AddBook = () => {
   const dispatch = useDispatch();
@@ -25,6 +25,7 @@ const AddBook = () => {
     };
 
     dispatch(addBook(newBook));
+    dispatch(addNewBook(newBook))
 
     setBookName('');
     setAuthorName('');
