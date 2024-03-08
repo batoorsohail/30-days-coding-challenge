@@ -1,7 +1,7 @@
+import { useDispatch } from 'react-redux';
 import Book from '../components/Book';
 import AddBook from '../components/AddBook';
 import { fetchBooks } from '../redux/books/booksSlice';
-import { useDispatch } from 'react-redux';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const HomePage = () => {
       <Book />
       <AddBook />
     </section>
-  )
+  );
 };
 
 export default HomePage;

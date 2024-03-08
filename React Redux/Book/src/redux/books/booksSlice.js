@@ -3,14 +3,14 @@ import axios from 'axios';
 
 const initialState = {
   booksData: [],
-  status: "idle",
-  error: null
+  status: 'idle',
+  error: null,
 };
 
-const BOOKS_URL = "https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/neTvlShlUagV28v2Fadm"
+const BOOKS_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/neTvlShlUagV28v2Fadm';
 
-export const fetchBooks = createAsyncThunk("books/fetchBooks", async() => {
-  const response = await axios.get(`${BOOKS_URL}/books`)
+export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
+  const response = await axios.get(`${BOOKS_URL}/books`);
   return response.data;
 });
 
@@ -30,28 +30,36 @@ const booksSlice = createSlice({
   },
   extraReducers(builder) {
     builder
-      .addCase(fetchBooks.pending, (state, action) => {
-        state.status = "loading";
+      .addCase(fetchBooks.pending, (state) => {
+        state.status = 'loading';
       })
       .addCase(fetchBooks.fulfilled, (state, action) => {
-        state.status = "succeed";
+        state.status = 'succeed';
         const loadedBooks = action.payload;
 
         // eslint-disable-next-line no-restricted-syntax, guard-for-in
         for (const id in loadedBooks) {
           const bookObj = loadedBooks[id][0];
           bookObj.item_id = id;
-          state.booksData.push(bookObj);
+              // Check if the book with the same item_id already exists in booksData
+          const existingBookIndex = state.booksData.findIndex(book => book.item_id === id);
+            
+          if (existingBookIndex === -1) {
+            state.booksData.push(bookObj);
+          } else {
+            // Update the existing book with the new data
+            state.booksData[existingBookIndex] = bookObj;
+          }
         }
       })
       .addCase(fetchBooks.rejected, (state, action) => {
-        state.status = "failed";
+        state.status = 'failed';
         state.error = action.error.message;
-      })
-  }
+      });
+  },
 });
 
-export const selectAllBooks = (state => state.books.booksData);
+export const selectAllBooks = ((state) => state.books.booksData);
 
 export const { addBook, removeBook } = booksSlice.actions;
 export default booksSlice.reducer;

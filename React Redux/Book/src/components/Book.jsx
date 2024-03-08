@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
-import { selectAllBooks } from '../redux/books/booksSlice';
+import { removeBook, selectAllBooks } from '../redux/books/booksSlice';
 
 const Book = () => {
   // const books = useSelector((state) => state.books.booksData || []);
