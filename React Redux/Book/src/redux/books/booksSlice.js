@@ -61,6 +61,14 @@ const booksSlice = createSlice({
         state.status = 'failed';
         state.error = action.error.message;
       });
+    builder
+      .addCase(addNewBook.pending, (state) => {
+        state.status = 'loading';
+      }).addCase(addNewBook.fulfilled, (state) => {
+        state.status = 'succeed';
+      }).addCase(addNewBook.rejected, (state) => {
+        state.status = 'failed';
+      })
   },
 });
 
