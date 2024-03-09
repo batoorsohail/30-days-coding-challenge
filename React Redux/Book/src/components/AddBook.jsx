@@ -21,7 +21,7 @@ const AddBook = () => {
       item_id: nanoid(),
       title: bookName,
       author: authorName,
-      category: bookCategory || 'Fiction',
+      category: bookCategory || 'Select Category',
     };
 
     dispatch(addBook(newBook));
@@ -29,7 +29,7 @@ const AddBook = () => {
 
     setBookName('');
     setAuthorName('');
-    setBookCategory('Fiction');
+    setBookCategory('Select Category');
   };
 
   return (
@@ -38,10 +38,14 @@ const AddBook = () => {
         <input type="text" placeholder="Book Name" value={bookName} onChange={onBookChanged} className="px-[6px] py-[4px]" required />
         <input type="text" placeholder="Author name" value={authorName} onChange={onAuthorChanged} className="px-[6px] py-[4px]" required />
         <select name="category" value={bookCategory} onChange={onCategoryChanged}>
+          <option value="Select Category">Select Category</option>
           <option value="Fiction">Fiction</option>
+          <option value="Technology">Technology</option>
+          <option value="Life-style">Life-style</option>
           <option value="Comedy">Comedy</option>
           <option value="Nonfiction">Nonfiction</option>
           <option value="Drama">Drama</option>
+          <option value="General">General</option>
         </select>
         <button type="submit" className="bg-blue-600 text-white font-bold px-5 py-[4px]">Add Book</button>
       </form>
