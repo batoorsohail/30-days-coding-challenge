@@ -24,8 +24,8 @@ export const addNewBook = createAsyncThunk('books/addNewBook', async (booksData)
 export const deleteBook = createAsyncThunk('books/deleteBook', async (bookId) => {
   const response = await axios.delete(`${BOOKS_URL}/books/${bookId}`);
   return response.data;
-})
- 
+});
+
 const booksSlice = createSlice({
   name: 'books',
   initialState,
