@@ -8,6 +8,7 @@ const Book = () => {
 
   const onDeleteBook = (book) => {
     dispatch(removeBook(book.item_id));
+    dispatch(deleteBook(book.item_id));
   };
 
   return (
