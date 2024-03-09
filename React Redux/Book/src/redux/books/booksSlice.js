@@ -21,6 +21,11 @@ export const addNewBook = createAsyncThunk('books/addNewBook', async (booksData)
   return response.data;
 });
 
+export const deleteBook = createAsyncThunk('books/deleteBook', async (bookId) => {
+  const response = await axios.delete(`${BOOKS_URL}/books/${bookId}`);
+  return response.data;
+})
+ 
 const booksSlice = createSlice({
   name: 'books',
   initialState,
@@ -64,9 +69,7 @@ const booksSlice = createSlice({
         state.error = action.error.message;
       });
     builder
-      .addCase(addNewBook.pending, (state) => {
-        state.status = 'loading';
-      }).addCase(addNewBook.fulfilled, (state) => {
+      .addCase(addNewBook.fulfilled, (state) => {
         state.status = 'succeed';
       }).addCase(addNewBook.rejected, (state) => {
         state.status = 'failed';
