@@ -4,9 +4,9 @@ import Logo from "../assets/planet.png"
 const Header = () => {
   return (
     <header className="flex items-center justify-between px-20 py-5 border border-b-black">
-      <div className="flex items-center">
+      <div className="flex items-center gap-5">
         <img src={Logo} alt="logo" className="w-16 h-16"/>
-        <h1>Space Project</h1>
+        <h1 className="text-3xl font-bold">Space Project</h1>
       </div>
       <nav>
         <ul className="flex items-center gap-10">
