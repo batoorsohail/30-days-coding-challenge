@@ -1,14 +1,13 @@
-import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react";
-import { selectAllRockets, getRockets } from "../redux/rockets/rocketsSlice"
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { selectAllRockets, getRockets } from '../redux/rockets/rocketsSlice';
 
 const RocketsPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getRockets());
-  }, [dispatch])
-
+  }, [dispatch]);
 
   const rockets = useSelector(selectAllRockets);
   return (
@@ -24,7 +23,7 @@ const RocketsPage = () => {
         </article>
       ))}
     </section>
-  )
-}
+  );
+};
 
-export default RocketsPage
+export default RocketsPage;
