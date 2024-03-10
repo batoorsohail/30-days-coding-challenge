@@ -33,6 +33,20 @@ const rocketsSlice = createSlice({
       state.rocketsData =  state.rocketsData.map((rocket) => (rocket.id === id) ? {...rocket, reserved: false} : rocket);
     })
   },
+  extraReducers(builder){
+    builder
+      .addCase(getRockets.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(getRockets.fulfilled, (state, action) => {
+        state.status = "succeed";
+        state.rocketsData = action.payload;
+      })
+      .addCase(getRockets.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+  }
 })
 
 export const selectAllRockets = ((state) => state.rockets.rocketsData)
