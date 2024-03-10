@@ -3,11 +3,24 @@ import { useEffect } from "react";
 import { selectAllRockets, getRockets } from "../redux/rockets/rocketsSlice"
 
 const RocketsPage = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getRockets());
+  }, [dispatch])
 
 
   const rockets = useSelector(selectAllRockets);
   return (
-    <h1>Hello World</h1>
+    <section>
+      {rockets.map((rocket) => (
+        <section key={rocket.id}>
+          <img src={rocket.flickerImage} alt="rocket" className="w-72" />
+          <p className="text-xl font-bold">{rocket.rocketName}</p>
+          <p>{rocket.description}</p>
+        </section>
+      ))}
+    </section>
   )
 }
 

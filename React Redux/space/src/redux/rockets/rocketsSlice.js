@@ -13,9 +13,9 @@ export const getRockets = createAsyncThunk('rockets/getRockets', async() => {
   const response = await axios.get(ROCKET_URL);
   return response.data.map((rocket) => ({
     id: rocket.id,
-    rocketName: rocket.rocket_name,
+    rocketName: rocket.name,
     description: rocket.description,
-    flickerImage: rocket.flickerImage,
+    flickerImage: rocket.flickr_images,
     reserved: false
   }));
 })
