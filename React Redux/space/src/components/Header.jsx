@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom"
 import Logo from "../assets/planet.png"
 
 const Header = () => {
@@ -9,14 +10,20 @@ const Header = () => {
       </div>
       <nav>
         <ul className="flex items-center gap-10">
-          <li className="text-blue-500 hover:underline active:underline">
-            Dragons
+          <li className="text-lg text-blue-500 active:underline">
+            <NavLink to="/">
+              Dragons
+            </NavLink>
           </li>
-          <li className="text-blue-500 hover:underline active:underline">
-            Missions
+          <li className="text-lg text-blue-500 active:underline">
+            <NavLink to="/missions">
+              Missions
+            </NavLink>
           </li>
-          <li className="text-blue-500 hover:underline active:underline">
-            My profile
+          <li className="text-lg text-blue-500 active:underline">
+            <NavLink to="/myProfile">
+              My profile
+            </NavLink>
           </li>
         </ul>
       </nav>
