@@ -3,7 +3,7 @@ function App() {
     <h1>
       Space Project
     </h1>
-  )
+  );
 }
 
-export default App
+export default App;
