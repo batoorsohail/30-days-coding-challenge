@@ -9,11 +9,11 @@ const RocketsPage = () => {
     dispatch(getRockets());
   }, [dispatch]);
 
-  const handelReserve = (rocket) => {
+  const handleReserve = (rocket) => {
     dispatch(reserveRocket(rocket.id));
   };
 
-  const handelCancelReserve = (rocket) => {
+  const handleCancelReserve = (rocket) => {
     dispatch(cancelReserveRocket(rocket.id));
   };
 
@@ -26,6 +26,15 @@ const RocketsPage = () => {
           <div className="flex flex-col gap-5">
             <p className="text-xl font-bold">{rocket.rocketName}</p>
             <p>{rocket.description}</p>
+            {rocket.reserved ? (
+              <button type="button" onClick={() => handleCancelReserve(rocket)} className="bg-blue-500 text-white px-5 py-2 w-32 rounded-md">
+                Cancel Reservation
+              </button>
+            ) : (
+              <button type="button" onClick={() => handleReserve(rocket)} className="bg-blue-500 text-white px-5 py-2 w-32 rounded-md">
+                Reserve Rocket
+              </button>
+            )}
           </div>
         </article>
       ))}
