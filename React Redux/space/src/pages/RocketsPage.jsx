@@ -9,6 +9,10 @@ const RocketsPage = () => {
     dispatch(getRockets());
   }, [dispatch]);
 
+  const handelReserve = (rocket) => {
+    dispatch(reserveRocket(rocket.id));
+  };
+
   const rockets = useSelector(selectAllRockets);
   return (
     <section className="flex flex-col gap-10 px-20">
