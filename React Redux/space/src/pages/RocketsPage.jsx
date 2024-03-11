@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { selectAllRockets, getRockets } from '../redux/rockets/rocketsSlice';
+import { selectAllRockets, getRockets, reserveRocket, cancelReserveRocket } from '../redux/rockets/rocketsSlice';
 
 const RocketsPage = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,6 @@ const RocketsPage = () => {
           <div className="flex flex-col gap-5">
             <p className="text-xl font-bold">{rocket.rocketName}</p>
             <p>{rocket.description}</p>
-            <button type="button" className="bg-blue-500 text-white px-5 py-2 w-32 rounded-md">Reserve</button>
           </div>
         </article>
       ))}
