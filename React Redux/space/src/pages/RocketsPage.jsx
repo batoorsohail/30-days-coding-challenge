@@ -27,11 +27,11 @@ const RocketsPage = () => {
             <p className="text-xl font-bold">{rocket.rocketName}</p>
             <p>{rocket.description}</p>
             {rocket.reserved ? (
-              <button type="button" onClick={() => handleCancelReserve(rocket)} className="bg-blue-500 text-white px-5 py-2 w-32 rounded-md">
+              <button type="button" onClick={() => handleCancelReserve(rocket)} className="bg-blue-500 text-white px-3 py-2 w-[18%] rounded-md">
                 Cancel Reservation
               </button>
             ) : (
-              <button type="button" onClick={() => handleReserve(rocket)} className="bg-blue-500 text-white px-5 py-2 w-32 rounded-md">
+              <button type="button" onClick={() => handleReserve(rocket)} className="bg-white text-gray-400 border border-gray-400 px-3 py-2 w-[18%] rounded-md">
                 Reserve Rocket
               </button>
             )}
