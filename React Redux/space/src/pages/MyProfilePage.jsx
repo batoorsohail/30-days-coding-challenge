@@ -5,12 +5,6 @@ import { getRockets, selectAllRockets } from '../redux/rockets/rocketsSlice';
 const MyProfilePage = () => {
   const rockets = useSelector(selectAllRockets);
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getRockets());
-  }, [dispatch]);
-
   const reservedRockets = rockets.filter((rocket) => rocket.reserved);
 
   return (

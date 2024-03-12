@@ -4,7 +4,7 @@ import {
   selectAllRockets, getRockets, reserveRocket, cancelReserveRocket,
 } from '../redux/rockets/rocketsSlice';
 
-const Book = () => {
+const Rocket = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -48,4 +48,4 @@ const Book = () => {
   );
 };
 
-export default Book;
+export default Rocket;
