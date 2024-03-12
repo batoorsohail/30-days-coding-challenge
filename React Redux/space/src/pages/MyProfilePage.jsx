@@ -11,6 +11,8 @@ const MyProfilePage = () => {
     dispatch(getRockets())
   }, [dispatch]);
 
+  const reservedRockets = rockets.filter((rocket) => rocket.reserved);
+
   return (
     <>
     </>
