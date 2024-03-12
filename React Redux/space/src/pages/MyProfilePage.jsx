@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
-import { getRockets, selectAllRockets } from "../redux/rockets/rocketsSlice";
-import { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getRockets, selectAllRockets } from '../redux/rockets/rocketsSlice';
 
 const MyProfilePage = () => {
   const rockets = useSelector(selectAllRockets);
@@ -8,7 +8,7 @@ const MyProfilePage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getRockets())
+    dispatch(getRockets());
   }, [dispatch]);
 
   const reservedRockets = rockets.filter((rocket) => rocket.reserved);
