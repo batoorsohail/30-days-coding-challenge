@@ -42,8 +42,16 @@ const Mission = () => {
           <tr key={mission.id}>
             <td className="border font-bold">{mission.missionName}</td>
             <td className="border">{mission.description}</td>
-            <td className="border">
-              {mission.joinMission ? <p className="bg-teal-500 text-white px-2 w-20 rounded">Active Member</p> : <p>Not a Member</p> }
+            <td className="border px-2">
+              {mission.joinMission ? (
+                <div className="flex text-center bg-teal-500 rounded px-2 w-32">
+                  <p className="text-white">Active Member</p>
+                </div>
+              ) : (
+                <div className="flex text-center bg-slate-400 rounded px-2 w-32">
+                  <p className="text-white">Not a Member</p>
+                </div>
+              ) }
             </td>
             <td className="border">
               {mission.joinMission ? (
