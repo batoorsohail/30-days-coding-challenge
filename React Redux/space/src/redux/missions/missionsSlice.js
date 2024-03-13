@@ -9,7 +9,7 @@ const initialState = {
 
 const MISSIONS_URL = "https://api.spacexdata.com/v3/missions";
 
-const getMissions = createAsyncThunk("missions/getMissions", async() => {
+export const getMissions = createAsyncThunk("missions/getMissions", async() => {
   const response = await axios.get(MISSIONS_URL);
   return response.data.map((mission) => ({
     id: mission.mission_id,
@@ -43,7 +43,7 @@ const missionsSlice = createSlice({
       })
       .addCase(getMissions.fulfilled, (state, action) => {
         state.status = "succeed";
-        state.booksData = action.payload;
+        state.missionsData = action.payload;
       })
       .addCase(getMissions.rejected, (state, action) => {
         state.status = "failed";
