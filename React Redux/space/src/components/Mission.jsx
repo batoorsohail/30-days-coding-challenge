@@ -13,6 +13,22 @@ const Mission = () => {
 
   return (
     <>
+    <table>
+      <tr>
+        <th className="border">
+          Mission
+        </th>
+        <th className="border">
+          Description
+        </th>
+        <th className="border">
+          Status
+        </th>
+        <th className="border">
+        </th>
+      </tr>
+
+    </table>
     </>
   )
 }
