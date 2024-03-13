@@ -32,7 +32,7 @@ const missionsSlice = createSlice({
     leaveMission: ((state, action) => {
       const missionId = action.payload;
       state.missionsData = state.missionsData.map((mission) => (
-        (mission.id === missionId) ? {...mission, leaveMission: false} : mission
+        (mission.id === missionId) ? {...mission, joinMission: false} : mission
       ))
     })
   },
