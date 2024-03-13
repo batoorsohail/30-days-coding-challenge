@@ -1,6 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const initialState = {
+  missionsData: [],
+  status: "idle",
+  error: null
+}
+
 const MISSIONS_URL = "https://api.spacexdata.com/v3/missions";
 
 const getMissions = createAsyncThunk("missions/getMissions", async() => {
@@ -13,15 +19,21 @@ const getMissions = createAsyncThunk("missions/getMissions", async() => {
   }));
 })
 
-const initialState = {
-  missionsData: [],
-  status: "idle",
-  error: null
-}
-
 const missionsSlice = createSlice({
   name: "missions",
   initialState,
   reducers: {
+    joinMission: ((state, action) => {
+      const missionId = action.payload;
+      state.missionsData = state.missionsData.map((mission) => (
+        (mission.id === missionId) ? {...mission, joinMission: true} : mission 
+        ))
+    }),
+    leaveMission: ((state, action) => {
+      const missionId = action.payload;
+      state.missionsData = state.missionsData.map((mission) => (
+        (mission.id === missionId) ? {...mission, leaveMission: false} : mission
+      ))
+    })
   }
 })
