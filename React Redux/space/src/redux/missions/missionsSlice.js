@@ -35,5 +35,19 @@ const missionsSlice = createSlice({
         (mission.id === missionId) ? {...mission, leaveMission: false} : mission
       ))
     })
+  },
+  extraReducers(builder) {
+    builder
+      .addCase(getMissions.pending, (state) => {
+        state.status = "pending";
+      })
+      .addCase(getMissions.fulfilled, (state, action) => {
+        state.status = "succeed";
+        state.booksData = action.payload;
+      })
+      .addCase(getMissions.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
   }
 })
