@@ -15,6 +15,10 @@ const Mission = () => {
     dispatch(joinMission(mission.id));
   }
 
+  const handleLeaveMission = (mission) => {
+    dispatch(leaveMission(mission.id));
+  }
+
   return (
     <>
     <table>
