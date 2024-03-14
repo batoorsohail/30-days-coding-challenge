@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
-import { selectAllRockets, selectAllMissions } from '../redux/rockets/rocketsSlice';
+import { selectAllRockets } from '../redux/rockets/rocketsSlice';
+import { selectAllMissions } from '../redux/missions/missionsSlice';
 
 const MyProfilePage = () => {
   const rockets = useSelector(selectAllRockets);
