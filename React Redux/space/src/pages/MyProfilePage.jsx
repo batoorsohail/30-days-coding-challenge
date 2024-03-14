@@ -21,6 +21,17 @@ const MyProfilePage = () => {
           <p>No rocket reserved</p>
         </div>
       )}
+      {joinedMissions.length > 0 ? (
+        joinedMissions.map((mission) => (
+          <div key={mission.id}>
+            <p>{mission.missionName}</p>
+          </div>
+        ))
+      ) : (
+        <div>
+          <p>No mission joined</p>
+        </div>
+      )}
     </>
   );
 };
