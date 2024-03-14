@@ -5,15 +5,14 @@ import {
 } from '../redux/missions/missionsSlice';
 
 const Mission = () => {
+  const missions = useSelector((selectAllMissions));
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (missions.length === 0) {
       dispatch(getMissions());
     }
-  }, [dispatch]);
-
-  const missions = useSelector((selectAllMissions));
+  }, [dispatch, missions]);
 
   const handleJoinMission = (mission) => {
     dispatch(joinMission(mission.id));

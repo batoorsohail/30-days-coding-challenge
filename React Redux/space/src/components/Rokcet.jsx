@@ -5,13 +5,14 @@ import {
 } from '../redux/rockets/rocketsSlice';
 
 const Rocket = () => {
+  const rockets = useSelector(selectAllRockets);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (rockets.length === 0) {
-      dispatch(getRockets()); 
+      dispatch(getRockets());
     }
-  }, [dispatch]);
+  }, [dispatch, rockets]);
 
   const handleReserve = (rocket) => {
     dispatch(reserveRocket(rocket.id));
@@ -20,8 +21,6 @@ const Rocket = () => {
   const handleCancelReserve = (rocket) => {
     dispatch(cancelReserveRocket(rocket.id));
   };
-
-  const rockets = useSelector(selectAllRockets);
 
   return (
     <>
