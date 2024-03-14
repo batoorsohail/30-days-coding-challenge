@@ -8,7 +8,9 @@ const Rocket = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getRockets());
+    if (rockets.length === 0) {
+      dispatch(getRockets()); 
+    }
   }, [dispatch]);
 
   const handleReserve = (rocket) => {
