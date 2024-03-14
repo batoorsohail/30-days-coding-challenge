@@ -1,10 +1,12 @@
 import { useSelector } from 'react-redux';
-import { selectAllRockets } from '../redux/rockets/rocketsSlice';
+import { selectAllRockets, selectAllMissions } from '../redux/rockets/rocketsSlice';
 
 const MyProfilePage = () => {
   const rockets = useSelector(selectAllRockets);
+  const missions = useSelector(selectAllMissions);
 
   const reservedRockets = rockets.filter((rocket) => rocket.reserved);
+  const joinedMissions = missions.filter((mission) => mission.joinMission)
 
   return (
     <>
