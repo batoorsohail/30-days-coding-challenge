@@ -8,7 +8,9 @@ const Mission = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getMissions());
+    if (missions.length === 0) {
+      dispatch(getMissions());
+    }
   }, [dispatch]);
 
   const missions = useSelector((selectAllMissions));
