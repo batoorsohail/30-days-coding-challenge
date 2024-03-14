@@ -10,30 +10,36 @@ const MyProfilePage = () => {
   const joinedMissions = missions.filter((mission) => mission.joinMission)
 
   return (
-    <>
-      {reservedRockets.length > 0 ? (
-        reservedRockets.map((rocket) => (
-          <div key={rocket.id}>
-            <p>{rocket.rocketName}</p>
+    <section className='flex gap-10 px-10 justify-center'>
+      <article className='w-1/3'>
+        <h2 className='text-2xl font-bold'>My Rockets</h2>
+        {reservedRockets.length > 0 ? (
+          reservedRockets.map((rocket) => (
+            <div key={rocket.id} className='p-5 border'>
+              <p>{rocket.rocketName}</p>
+            </div>
+          ))
+        ) : (
+          <div className='p-5 border'>
+            <p>No rocket reserved</p>
           </div>
-        ))
-      ) : (
-        <div>
-          <p>No rocket reserved</p>
-        </div>
-      )}
-      {joinedMissions.length > 0 ? (
-        joinedMissions.map((mission) => (
-          <div key={mission.id}>
-            <p>{mission.missionName}</p>
+        )}
+      </article>
+      <article className='w-1/3'>
+        <h2 className='text-2xl font-bold'>My Missions</h2>
+        {joinedMissions.length > 0 ? (
+          joinedMissions.map((mission) => (
+            <div key={mission.id} className='p-5 border'>
+              <p>{mission.missionName}</p>
+            </div>
+          ))
+        ) : (
+          <div className='p-5 border'>
+            <p>No mission joined</p>
           </div>
-        ))
-      ) : (
-        <div>
-          <p>No mission joined</p>
-        </div>
-      )}
-    </>
+        )}
+      </article>
+    </section>
   );
 };
 
