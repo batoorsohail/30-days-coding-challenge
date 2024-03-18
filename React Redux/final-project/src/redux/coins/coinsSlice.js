@@ -22,7 +22,21 @@ const getCoins = createAsyncThunk('coins/getCoins', async() => {
 const coinsSlice = createSlice({
   initialState,
   name: "coins",
-  reducers:{
-    
+  reducers:{},
+  extraReducers(builder){
+    builder
+      .addCase(getCoins.pending, (state) => {
+        state.status = "pending";
+      })
+      .addCase(getCoins.fulfilled, (state, action) => {
+        state.status = "succeed";
+        state.coins = action.payload;
+      })
+      .addCase(getCoins.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
   }
 })
+
+export default coinsSlice.reducer;
