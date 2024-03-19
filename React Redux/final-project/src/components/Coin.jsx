@@ -1,10 +1,28 @@
 import { useDispatch, useSelector } from "react-redux"
-import { selectAllCoins } from "../redux/coins/coinsSlice"
+import { selectAllCoins, getCoins } from "../redux/coins/coinsSlice"
 import { useEffect } from "react";
 
 const Coin = () => {
+  const coins = useSelector(selectAllCoins);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (coins.length ===0) {
+      dispatch(getCoins())
+    }
+  }, [dispatch]);
+  
   return (
-    <div>Coin</div>
+    <>
+      {
+        coins.map((coin) => (
+          <section key={coin.coinId}>
+            <p>{coin.coinName}</p>
+          </section>
+        ))
+      }
+    </>
   )
 }
 

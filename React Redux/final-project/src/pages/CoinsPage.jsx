@@ -1,6 +1,8 @@
+import Coin from "../components/Coin"
+
 const CoinsPage = () => {
   return (
-    <div>CoinsPage</div>
+    <Coin />
   )
 }
 

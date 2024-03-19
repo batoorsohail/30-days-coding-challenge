@@ -3,14 +3,14 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  coins: [],
+  coinsData: [],
   status: 'idle',
   error: null,
 };
 
 const COINS_URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false';
 
-const getCoins = createAsyncThunk('coins/getCoins', async () => {
+export const getCoins = createAsyncThunk('coins/getCoins', async () => {
   const response = await axios.get(COINS_URL);
   return response.data.map((coin) => ({
     coinId: coin.id,
@@ -31,7 +31,7 @@ const coinsSlice = createSlice({
       })
       .addCase(getCoins.fulfilled, (state, action) => {
         state.status = 'succeed';
-        state.coins = action.payload;
+        state.coinsData = action.payload;
       })
       .addCase(getCoins.rejected, (state, action) => {
         state.status = 'failed';
@@ -40,6 +40,6 @@ const coinsSlice = createSlice({
   },
 });
 
-export const selectAllCoins = state => state.coins.coins;
+export const selectAllCoins = ((state) => state.coins.coinsData);
 
 export default coinsSlice.reducer;
