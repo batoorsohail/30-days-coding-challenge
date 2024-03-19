@@ -2,7 +2,7 @@ import Coin from "../components/Coin"
 
 const CoinsPage = () => {
   return (
-    <section className="flex flex-wrap">
+    <section className="flex flex-wrap coin-section">
       <Coin />
     </section>
   )

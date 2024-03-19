@@ -17,7 +17,7 @@ const Coin = () => {
     <>
       {
         coins.map((coin) => (
-          <section key={coin.coinId} className="coin-section flex items-center justify-center flex-col bg-pink-400 w-1/2 p-6">
+          <section key={coin.coinId} className="flex items-center justify-center flex-col bg-pink-400 w-1/2 p-6">
             <div className="w-20">
               <img src={coin.coinImage} alt={coin.coinName} />
             </div>
