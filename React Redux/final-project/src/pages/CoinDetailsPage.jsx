@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const CoinDetailsPage = () => {
-  return (
-    <div>CoinDetailsPage</div>
-  )
-}
+const CoinDetailsPage = () => (
+  <div>CoinDetailsPage</div>
+);
 
-export default CoinDetailsPage
+export default CoinDetailsPage;

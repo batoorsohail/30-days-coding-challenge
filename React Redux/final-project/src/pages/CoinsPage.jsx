@@ -1,11 +1,9 @@
-import Coin from "../components/Coin"
+import Coin from '../components/Coin';
 
-const CoinsPage = () => {
-  return (
-    <section className="flex flex-wrap coin-section">
-      <Coin />
-    </section>
-  )
-}
+const CoinsPage = () => (
+  <section className="flex flex-wrap coin-section">
+    <Coin />
+  </section>
+);
 
-export default CoinsPage
+export default CoinsPage;
