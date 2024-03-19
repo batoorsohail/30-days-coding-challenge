@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { IoChevronForward } from "react-icons/io5";
 import { selectAllCoins, getCoins } from '../redux/coins/coinsSlice';
 
 const Coin = () => {
@@ -18,6 +20,9 @@ const Coin = () => {
       {
         coins.map((coin) => (
           <section key={coin.coinId} className="flex items-center justify-center flex-col bg-pink-400 w-1/2 p-6">
+            <Link to={`coins/${coin.coinId}`} className="text-white text-xl font-bold self-end">
+              <IoChevronForward />
+            </Link>
             <div className="w-20">
               <img src={coin.coinImage} alt={coin.coinName} />
             </div>

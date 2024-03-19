@@ -9,7 +9,7 @@ function App() {
       <Header />
       <Routes>
         <Route element={<CoinsPage />} path="/" />
-        <Route element={<CoinDetailsPage />} path="/coinDetails" />
+        <Route element={<CoinDetailsPage />} path="/coins/:coinId" />
       </Routes>
     </>
   );
