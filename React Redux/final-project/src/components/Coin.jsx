@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { IoChevronForward } from "react-icons/io5";
+import { IoChevronForward } from 'react-icons/io5';
 import { selectAllCoins, getCoins } from '../redux/coins/coinsSlice';
 
 const Coin = () => {
