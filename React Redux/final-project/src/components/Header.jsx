@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { IoMdSettings, IoIosArrowBack } from 'react-icons/io';
 import { FaMicrophone } from 'react-icons/fa';
 
@@ -5,7 +6,9 @@ const Header = () => (
   <header className="flex flex-col justify-center gap-3 bg-pink-500 h-[10vh]">
     <ul className="flex justify-between items-center px-2 md:px-10">
       <li className="text-white font-bold">
-        <IoIosArrowBack />
+        <Link to="/">
+          <IoIosArrowBack />
+        </Link>
       </li>
       <li className="text-white font-bold">
         Crypto
