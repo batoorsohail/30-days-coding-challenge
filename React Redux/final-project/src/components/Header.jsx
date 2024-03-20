@@ -18,7 +18,6 @@ const Header = () => (
         <p className="text-white font-bold"><IoMdSettings /></p>
       </li>
     </ul>
-    <input type="text" placeholder="Search coin" className="self-center w-3/4 rounded px-2" />
   </header>
 );
 
