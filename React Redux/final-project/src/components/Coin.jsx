@@ -21,7 +21,7 @@ const Coin = () => {
   return (
     <>
       <section className="flex items-center justify-center bg-pink-500">
-        <input type="text" placeholder="Search coin" className="self-center w-3/4 rounded px-2" />
+        <input value={filteredCoin} onChange={(e) => setFilteredCoin(e.target.value)} type="text" placeholder="Search coin" className="self-center w-3/4 rounded px-2" />
       </section>
       <section className="flex flex-wrap coin-section">
         {
