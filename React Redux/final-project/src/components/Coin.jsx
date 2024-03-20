@@ -6,7 +6,7 @@ import { selectAllCoins, getCoins } from '../redux/coins/coinsSlice';
 
 const Coin = () => {
   const coins = useSelector(selectAllCoins);
-  const [ filteredCoin, setFilteredCoin ] = useState("");
+  const [filteredCoin, setFilteredCoin] = useState('');
 
   const dispatch = useDispatch();
 
@@ -16,7 +16,8 @@ const Coin = () => {
     }
   }, [dispatch, coins]);
 
-  const searchCoin = coins.filter((coin) => coin.coinName.toLowerCase().includes(filteredCoin.toLowerCase()));
+  const searchCoin = coins.filter((coin) => coin.coinName.toLowerCase()
+    .includes(filteredCoin.toLowerCase()));
 
   return (
     <>
