@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IoChevronForward } from 'react-icons/io5';
 import { selectAllCoins, getCoins } from '../redux/coins/coinsSlice';
 
 const Coin = () => {
   const coins = useSelector(selectAllCoins);
+  const [ filteredCoin, setFilteredCoin ] = useState("");
 
   const dispatch = useDispatch();
 
@@ -15,6 +16,8 @@ const Coin = () => {
     }
   }, [dispatch, coins]);
 
+  const searchCoin = coins.filter((coin) => coin.coinName.toLowerCase().includes(filteredCoin.toLowerCase()));
+
   return (
     <>
       <section className="flex items-center justify-center bg-pink-500">
@@ -22,7 +25,7 @@ const Coin = () => {
       </section>
       <section className="flex flex-wrap coin-section">
         {
-          coins.map((coin) => (
+          searchCoin.map((coin) => (
             <section key={coin.coinId} className="flex items-center justify-center flex-col bg-pink-400 w-1/2 p-6">
               <Link to={`coins/${coin.coinId}`} className="text-white text-xl font-bold self-end">
                 <IoChevronForward />
