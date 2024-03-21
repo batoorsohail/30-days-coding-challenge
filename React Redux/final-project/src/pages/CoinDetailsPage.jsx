@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom";
 
 const CoinDetailsPage = () => {
   const coins = useSelector(selectAllCoins);
+  const { coinId } = useParams();
+
+  const cryptoCoin = coins.find((coin) => coin.coinId === coinId);
 
   return(
     <section>
