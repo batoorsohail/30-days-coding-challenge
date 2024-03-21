@@ -11,7 +11,7 @@ const CoinDetailsPage = () => {
   return (
     <section className="bg-pink-500 h-screen">
       <div className="flex justify-between items-center px-10 py-5">
-        <img  className="w-32" src={cryptoCoin.coinImage} alt={cryptoCoin.coinName} />
+        <img className="w-32" src={cryptoCoin.coinImage} alt={cryptoCoin.coinName} />
         <div>
           <h2 className="text-white text-3xl font-bold">{cryptoCoin.coinName}</h2>
           <p className="text-white text-xl font-bold">{cryptoCoin.coinPrice}</p>
