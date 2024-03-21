@@ -18,7 +18,7 @@ export const getCoins = createAsyncThunk('coins/getCoins', async () => {
     coinImage: coin.image,
     coinPrice: coin.current_price,
     coinRank: coin.market_cap_rank,
-    coinPriceChange: coin.price_change_24h
+    coinPriceChange: coin.price_change_24h,
   }));
 });
 
