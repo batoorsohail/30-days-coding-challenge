@@ -113,6 +113,26 @@
   text-align: center;
 }
 
+/* ---- portfolio details section ---- */
+
+.project-details-btn {
+  padding: 10px 15px;
+  background-color: #00c8ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.project-card-details {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 300px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 768px) {
   .nav-list-desktop {
     display: none;
