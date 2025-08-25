@@ -25,6 +25,20 @@ const projects = [
     languages: 'React, Express, MongoDB',
     image: './work2.JPG',
     link: '#',
+  },
+  {
+    title: 'Project One',
+    description: 'A brief description of Project One.',
+    languages: 'React, Express, MongoDB',
+    image: './work1.JPG',
+    link: '#',
+  },
+  {
+    title: 'Project Two',
+    description: 'A brief description of Project Two.',
+    languages: 'React, Express, MongoDB',
+    image: './work2.JPG',
+    link: '#',
   }
 ];
 
@@ -32,7 +46,7 @@ const projectsContainer = document.querySelector('.projects-container');
 
 const projectDetailsSection = document.querySelector('.project-details-section');
 
-const projectDetails = (project) => {
+const projectDetails = (project, closeProject) => {
   projectDetailsSection.innerHTML = '';
 
   const projectCard = document.createElement('div');
@@ -59,14 +73,18 @@ const projectDetails = (project) => {
   projectLanguages.textContent = project.languages;
   projectCard.appendChild(projectLanguages);
 
-  const projectLink = document.createElement('a');
-  projectLink.classList.add('project-link');
-  projectLink.href = project.link;
-  projectLink.textContent = "View Project";
-  projectCard.appendChild(projectLink);
+  const closeProjectBtn = document.createElement('button');
+  closeProjectBtn.classList.add('close-project-btn');
+  closeProjectBtn.textContent = "close";
+  projectCard.appendChild(closeProjectBtn);
+  closeProjectBtn.addEventListener('click', () => {
+    projectDetailsSection.style.display = "none";
+  });
 
   projectDetailsSection.appendChild(projectCard);
-}
+
+  projectDetailsSection.style.display = "flex";
+};
 
 const createWorks = (project) => {
   const projectCard = document.createElement('div');
