@@ -179,6 +179,10 @@
   border-radius: 5px;
 }
 
+.error {
+  color: red;
+}
+
 /* Small fade-in animation */
 @keyframes fadeIn {
   from {

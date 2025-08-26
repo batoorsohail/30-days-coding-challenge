@@ -124,3 +124,16 @@ const createWorks = (project) => {
 
 projects.forEach(createWorks);
 
+const form = document.getElementById('form');
+const emailInput = document.querySelector('.email-input');
+const error = document.querySelector('.error');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  if (emailInput.value == emailInput.value.toLowerCase()) {
+    form.submit();
+  } else {
+    error.innerHTML = "email should be capital";
+  }
+});
