@@ -123,3 +123,4 @@ const createWorks = (project) => {
 };
 
 projects.forEach(createWorks);
+

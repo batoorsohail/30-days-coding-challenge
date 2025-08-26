@@ -154,6 +154,31 @@
   cursor: pointer;
 }
 
+/* -------form section------- */
+#form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.input {
+  padding: 10px 5px;
+  border-radius: 5px;
+}
+
+.textarea {
+  padding: 10px 5px;
+  border-radius: .5rem;
+}
+
+.submit-btn {
+  padding: 5px 3px;
+  border-radius: 5px;
+}
+
 /* Small fade-in animation */
 @keyframes fadeIn {
   from {
