@@ -137,3 +137,20 @@ form.addEventListener('submit', (e) => {
     error.innerHTML = "email should be capital";
   }
 });
+
+const nameInput = document.querySelector('.name-input');
+const textarea = document.querySelector('.textarea');
+
+const saveFormData = () => {
+  const formData = {
+    name: nameInput.value,
+    email: emailInput.value,
+    textarea: textarea.value
+  };
+
+  localStorage.setItem('formData', JSON.stringify(formData));
+};
+
+[nameInput, emailInput, textarea].forEach(input => {
+  input.addEventListener('input', saveFormData);
+});
