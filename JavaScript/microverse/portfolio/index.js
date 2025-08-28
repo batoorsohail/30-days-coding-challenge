@@ -154,3 +154,11 @@ const saveFormData = () => {
 [nameInput, emailInput, textarea].forEach(input => {
   input.addEventListener('input', saveFormData);
 });
+
+window.addEventListener('DOMContentLoaded', () => {
+  const saveData = JSON.parse(localStorage.getItem('formData'));
+
+  nameInput.value = saveData.name || '';
+  emailInput.value = saveData.email || '';
+  textarea.value = saveData.textarea || '';
+})
