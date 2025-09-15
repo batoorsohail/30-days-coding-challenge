@@ -74,3 +74,27 @@
   border: none;
   cursor: pointer;
 }
+
+.books-section {
+  display: flex;
+  flex-direction: column;
+  border: 1px #000 solid;
+  border-radius: .5rem;
+  width: 50%;
+}
+
+.book-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.remove-btn {
+  padding: .5rem 2rem;
+  background-color: red;
+  color: #ffff;
+  border: none;
+  border-radius: .5rem;
+}
