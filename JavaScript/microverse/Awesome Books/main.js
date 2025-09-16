@@ -14,7 +14,25 @@ const addedBooks = [
   }
 ];
 
-addedBooks.forEach(book => {
+const books = JSON.parse(localStorage.getItem('books'));
+
+const addNewBook = () => {
+  const title = inputTitle.value;
+  const author = inputAuthor.value;
+
+  if (!title || !author) return;
+
+  books.push({ title, author });
+  localStorage.setItem('books', JSON.stringify(books));
+  console.log(books);
+
+  inputTitle.value = "";
+  inputAuthor.value = "";
+}
+
+submitBtn.addEventListener('click', addNewBook);
+
+books.forEach(book => {
   const bookContainer = document.createElement('div');
   bookContainer.classList.add('book-container');
 
