@@ -2,6 +2,8 @@ const booksSection = document.querySelector('.books-section');
 const inputTitle = document.querySelector('.input-title');
 const inputAuthor = document.querySelector('.input-author');
 const submitBtn = document.querySelector('.submit-btn');
+const formSection = document.querySelector('.form-section');
+const booksContainer = document.querySelector('.books-container');
 
 class Books {
   constructor(title, author) {
@@ -74,3 +76,17 @@ const book = new Books(inputTitle, inputAuthor);
 submitBtn.addEventListener('click', () => book.addBook());
 
 book.renderBooks();
+
+const homePage = document.getElementById("home");
+const addBookPage = document.getElementById("add-book");
+const contactPage = document.getElementById("contact");
+
+homePage.addEventListener('click', () => {
+  formSection.style.display = 'none';
+  booksContainer.style.display = 'flex';
+})
+
+addBookPage.addEventListener('click', () => {
+  formSection.style.display = 'flex';
+  booksContainer.style.display = 'none';
+})
