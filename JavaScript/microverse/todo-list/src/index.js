@@ -1,3 +1,5 @@
+import './style.css';
+
 const toDosContainer = document.querySelector('.todos-container');
 
 const toDos = [
@@ -28,15 +30,29 @@ const displayTodos = () => {
     const todoList = document.createElement('li');
     todoList.classList.add('todo-list');
 
-    const todoComplete = document.createElement('select');
-    todoComplete.textContent = todo.completed;
-    todoList.classList.add('todo-complete');
-    todoList.appendChild(todoComplete);
+    const todoListContainer = document.createElement('div');
+    todoListContainer.classList.add('todo-list-container');
+
+    const todoComplete = document.createElement('input');
+    todoComplete.type = 'checkbox';
+    todoComplete.value = todo.completed;
+    todoComplete.classList.add('todo-complete');
+    todoListContainer.appendChild(todoComplete);
 
     const todoDesc = document.createElement('p');
     todoDesc.textContent = todo.description;
     todoDesc.classList.add('todo-desc');
-    todoList.appendChild(todoDesc);
+    todoListContainer.appendChild(todoDesc);
+
+    todoList.appendChild(todoListContainer);
+
+    const moreDiv = document.createElement('div');
+    moreDiv.classList.add('more-div');
+    
+    const threeDots = document.createElement('i');
+    threeDots.classList.add('fa-solid', 'fa-ellipsis-vertical');
+    moreDiv.appendChild(threeDots);
+    todoList.appendChild(moreDiv);
 
     toDosContainer.appendChild(todoList);
   })
