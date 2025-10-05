@@ -1,31 +1,14 @@
 import './style.css';
+import addTodo from './modules/addTodo';
 
 const toDosContainer = document.querySelector('.todos-container');
+const todoInput = document.querySelector('.todo-input');
 
-const toDos = [
-  {
-    description: "Read 10 pages of a book",
-    completed: false,
-    index: 1
-  },
-  {
-    description: "Exercising for 1 hour",
-    completed: false,
-    index: 2
-  },
-  {
-    description: "Coding for 1 hour",
-    completed: false,
-    index: 3
-  },
-  {
-    description: "Study for 1 hour",
-    completed: false,
-    index: 4
-  }
-];
+let toDos = JSON.parse(localStorage.getItem('todos')) || [];
 
 const displayTodos = () => {
+  toDosContainer.innerHTML = "";
+
   toDos.map(todo => {
     const todoList = document.createElement('li');
     todoList.classList.add('todo-list');
@@ -57,5 +40,12 @@ const displayTodos = () => {
     toDosContainer.appendChild(todoList);
   })
 };
+
+todoInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    addTodo(toDos, todoInput);
+    displayTodos();
+  }
+});
 
 displayTodos();
