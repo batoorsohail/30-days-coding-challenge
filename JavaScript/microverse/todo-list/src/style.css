@@ -83,6 +83,11 @@ body {
   gap: .5rem;
 }
 
+.more-div {
+  display: flex;
+  gap: .5rem;
+}
+
 .fa-ellipsis-vertical:hover {
   cursor: pointer;
 }

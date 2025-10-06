@@ -1,3 +1,5 @@
+import removeTodo from "./removeTodo";
+
 const toDosContainer = document.querySelector('.todos-container');
 
 const displayTodos = (toDos) => {
@@ -29,6 +31,20 @@ const displayTodos = (toDos) => {
     const threeDots = document.createElement('i');
     threeDots.classList.add('fa-solid', 'fa-ellipsis-vertical');
     moreDiv.appendChild(threeDots);
+    threeDots.addEventListener('click', () => {
+      threeDots.style.display = 'none';
+      const editTodo = document.createElement('i');
+      editTodo.classList.add('fa-solid', 'fa-pen-to-square');
+      moreDiv.appendChild(editTodo);
+
+      const deleteTodo = document.createElement('i');
+      deleteTodo.classList.add('fa-solid', 'fa-trash');
+      moreDiv.appendChild(deleteTodo);
+
+      deleteTodo.addEventListener('click', () => {
+        removeTodo(toDos, index, displayTodos);
+      })
+    })
     todoList.appendChild(moreDiv);
 
     toDosContainer.appendChild(todoList);
