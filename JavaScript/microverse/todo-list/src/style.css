@@ -21,7 +21,7 @@ body {
   margin-top: 10rem;
   background-color: #ffff;
   width: 30%;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .todo-title-container {
@@ -59,7 +59,7 @@ body {
 
 .title-hr {
   width: 100%;
-  height: .5px;
+  height: 0.5px;
   background-color: rgb(226, 226, 226);
 }
 
@@ -74,18 +74,18 @@ body {
 .todo-list {
   display: flex;
   justify-content: space-between;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .todo-list-container {
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .more-div {
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .fa-ellipsis-vertical:hover {

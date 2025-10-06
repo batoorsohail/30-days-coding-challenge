@@ -1,8 +1,8 @@
 import './style.css';
-import displayTodos from './modules/displayTodos';
-import addTodo from './modules/addTodo';
+import displayTodos from './modules/displayTodos.js';
+import addTodo from './modules/addTodo.js';
 
-let toDos = JSON.parse(localStorage.getItem('todos')) || [];
+const toDos = JSON.parse(localStorage.getItem('todos')) || [];
 
 const todoInput = document.querySelector('.todo-input');
 

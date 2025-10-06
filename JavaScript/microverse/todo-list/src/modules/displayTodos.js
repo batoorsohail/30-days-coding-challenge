@@ -1,11 +1,11 @@
-import removeTodo from "./removeTodo";
+import removeTodo from './removeTodo.js';
 
 const toDosContainer = document.querySelector('.todos-container');
 
 const displayTodos = (toDos) => {
-  toDosContainer.innerHTML = "";
+  toDosContainer.innerHTML = '';
 
-  toDos.map((todo, index) => {
+  toDos.forEach((todo, index) => {
     const todoList = document.createElement('li');
     todoList.classList.add('todo-list');
 
@@ -27,7 +27,7 @@ const displayTodos = (toDos) => {
 
     const moreDiv = document.createElement('div');
     moreDiv.classList.add('more-div');
-    
+
     const threeDots = document.createElement('i');
     threeDots.classList.add('fa-solid', 'fa-ellipsis-vertical');
     moreDiv.appendChild(threeDots);
@@ -43,12 +43,12 @@ const displayTodos = (toDos) => {
 
       deleteTodo.addEventListener('click', () => {
         removeTodo(toDos, index, displayTodos);
-      })
-    })
+      });
+    });
     todoList.appendChild(moreDiv);
 
     toDosContainer.appendChild(todoList);
-  })
+  });
 };
 
 export default displayTodos;
