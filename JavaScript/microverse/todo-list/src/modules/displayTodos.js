@@ -1,4 +1,5 @@
 import removeTodo from './removeTodo.js';
+import editTodo from './editTodo.js';
 
 const toDosContainer = document.querySelector('.todos-container');
 
@@ -33,9 +34,31 @@ const displayTodos = (toDos) => {
     moreDiv.appendChild(threeDots);
     threeDots.addEventListener('click', () => {
       threeDots.style.display = 'none';
-      const editTodo = document.createElement('i');
-      editTodo.classList.add('fa-solid', 'fa-pen-to-square');
-      moreDiv.appendChild(editTodo);
+      const editTodoIcon = document.createElement('i');
+      editTodoIcon.classList.add('fa-solid', 'fa-pen-to-square');
+      moreDiv.appendChild(editTodoIcon);
+
+      editTodoIcon.addEventListener('click', () => {
+        const updatingTodoInput = document.createElement('input');
+        updatingTodoInput.type = ('text');
+        updatingTodoInput.classList.add('updating-todo-input');
+        updatingTodoInput.value = todo.description;
+        todoDesc.style.display = 'none';
+        todoListContainer.appendChild(updatingTodoInput);
+
+        editTodoIcon.style.display = 'none';
+        deleteTodo.style.display = 'none';
+        const confirmUpdate = document.createElement('i');
+        confirmUpdate.classList.add('fa-solid', 'fa-square-check')
+        moreDiv.appendChild(confirmUpdate);
+
+        confirmUpdate.addEventListener('click', () => {
+          const updatedValue = updatingTodoInput.value;
+          editTodo(toDos, index, displayTodos, updatedValue);
+          todoDesc.style.display = 'block';
+          updatingTodoInput.style.display = 'none';
+        })
+      })
 
       const deleteTodo = document.createElement('i');
       deleteTodo.classList.add('fa-solid', 'fa-trash');
