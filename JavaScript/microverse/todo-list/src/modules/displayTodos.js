@@ -1,5 +1,6 @@
 import removeTodo from './removeTodo.js';
 import editTodo from './editTodo.js';
+import markComplete from './markComplete.js';
 
 const toDosContainer = document.querySelector('.todos-container');
 
@@ -18,6 +19,9 @@ const displayTodos = (toDos) => {
     todoComplete.checked = todo.completed;
     todoComplete.classList.add('todo-complete');
     todoListContainer.appendChild(todoComplete);
+    todoComplete.addEventListener('change', () => {
+      markComplete(toDos, index);
+    });
 
     const todoDesc = document.createElement('p');
     todoDesc.textContent = todo.description;
