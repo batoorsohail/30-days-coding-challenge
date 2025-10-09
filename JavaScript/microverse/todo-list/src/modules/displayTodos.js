@@ -42,6 +42,14 @@ const displayTodos = (toDos) => {
       editTodoIcon.classList.add('fa-solid', 'fa-pen-to-square');
       moreDiv.appendChild(editTodoIcon);
 
+      const deleteTodo = document.createElement('i');
+      deleteTodo.classList.add('fa-solid', 'fa-trash');
+      moreDiv.appendChild(deleteTodo);
+
+      deleteTodo.addEventListener('click', () => {
+        removeTodo(toDos, index, displayTodos);
+      });
+
       editTodoIcon.addEventListener('click', () => {
         const updatingTodoInput = document.createElement('input');
         updatingTodoInput.type = ('text');
@@ -53,7 +61,7 @@ const displayTodos = (toDos) => {
         editTodoIcon.style.display = 'none';
         deleteTodo.style.display = 'none';
         const confirmUpdate = document.createElement('i');
-        confirmUpdate.classList.add('fa-solid', 'fa-square-check')
+        confirmUpdate.classList.add('fa-solid', 'fa-square-check');
         moreDiv.appendChild(confirmUpdate);
 
         confirmUpdate.addEventListener('click', () => {
@@ -61,15 +69,7 @@ const displayTodos = (toDos) => {
           editTodo(toDos, index, displayTodos, updatedValue);
           todoDesc.style.display = 'block';
           updatingTodoInput.style.display = 'none';
-        })
-      })
-
-      const deleteTodo = document.createElement('i');
-      deleteTodo.classList.add('fa-solid', 'fa-trash');
-      moreDiv.appendChild(deleteTodo);
-
-      deleteTodo.addEventListener('click', () => {
-        removeTodo(toDos, index, displayTodos);
+        });
       });
     });
     todoList.appendChild(moreDiv);

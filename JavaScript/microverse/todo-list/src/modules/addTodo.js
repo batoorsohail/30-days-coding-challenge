@@ -1,6 +1,6 @@
 const addTodo = (toDos, todoInput) => {
   const todoInputValue = todoInput.value;
-  
+
   if (todoInputValue === '') {
     throw new Error('Input should have a value');
   } else {

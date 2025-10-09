@@ -6,7 +6,7 @@ import clearCompletedTodos from './modules/clearCompletedTodos.js';
 const toDos = JSON.parse(localStorage.getItem('todos')) || [];
 
 const todoInput = document.querySelector('.todo-input');
-const clearAllCompleteTodosBtn = document.querySelector('.clear-all-btn')
+const clearAllCompleteTodosBtn = document.querySelector('.clear-all-btn');
 
 todoInput.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
